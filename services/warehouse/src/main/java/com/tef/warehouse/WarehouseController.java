@@ -18,6 +18,11 @@ public class WarehouseController {
     @Autowired
     private WarehouseService warehouseService;
 
+    @RequestMapping(value = "/")
+    public String home() {
+        return "Eureka Client application";
+    }
+
     @PutMapping("api/warehouse/items/{id}/addition/{amount}")
     public ItemDto addProduct(@PathVariable Integer id, @PathVariable Integer amount) throws Exception {
         return warehouseService.addProduct(id, amount);
